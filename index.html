@@ -38,59 +38,74 @@
 
             <div class="form-workExperience">
               <h2>2. Your Work Experience</h2>
-              <label for="jobTitle">Job Title:</label><br />
-              <input type="text" id="jobTitle" name="jobTitle" placeholder="Data Scientist" required /><br /><br />
-              <label for="companyName">Company Name:</label><br />
-              <input type="text" id="companyName" name="companyName" placeholder="Tech Corp" required /><br /><br />
-              <label for="jobStartDate">Start Date:</label><br />
-              <input type="date" id="jobStartDate" name="jobStartDate" required /><br /><br />
-              <label for="jobEndDate">End Date:</label><br />
-              <input type="date" id="jobEndDate" name="jobEndDate" value="Present" required /><br /><br />
-              <label for="jobDescription">Describe your role and achievements in a few lines:</label><br />
-              <textarea name="jobDescription" id="jobDescription" rows="5"></textarea><br /><br />
-              <button type="button">Add</button>
-              <button type="button">Remove</button> <br />
-              <br />
+              <div id="experiences-container">
+                <div class="experience-entry">
+                  <label for="jobTitle">Job Title:</label><br />
+                  <input type="text" id="jobTitle" name="experiences" placeholder="Data Scientist" required /><br /><br />
+                  <label for="companyName">Company Name:</label><br />
+                  <input type="text" id="companyName" name="companyName" placeholder="Tech Corp" required /><br /><br />
+                  <label for="jobStartDate">Start Date:</label><br />
+                  <input type="date" id="jobStartDate" name="jobStartDate" required /><br /><br />
+                  <label for="jobEndDate">End Date:</label><br />
+                  <input type="date" id="jobEndDate" name="jobEndDate" /><br /><br />
+                  <label for="jobDescription">Describe your role and missions in a few lines:</label><br />
+                  <textarea name="jobDescription" id="jobDescription" rows="5"></textarea><br /><br />
+                  <button type="button" class="btn btn-success btn-sm btn-add-experience">Add</button>
+                  <button type="button" class="btn btn-danger btn-sm btn-remove-experience">Remove</button> <br />
+                  <br />
+                </div>
+              </div>
             </div>
-
             <div class="form-education">
               <h2>3. Your Education</h2>
-              <label for="degree">Highest Degree:</label><br />
-              <input type="text" id="degree" name="degree" placeholder="Master in Computer Science" required /><br /><br />
-              <label for="institution">Institution:</label><br />
-              <input type="text" id="institution" name="institution" placeholder="Paris University" required /><br /><br />
-              <label for="institutionStartDate">Start Date:</label><br />
-              <input type="date" name="institutionStartDate" id="institutionStartDate" required /> <br /><br />
-              <label for="institutionEndDate">End Date:</label><br />
-              <input type="date" name="institutionEndDate" id="institutionEndDate" required /><br /><br />
-              <label for="educationDescription">Describe your studies in a few lines:</label><br />
-              <textarea name="educationDescription" id="educationDescription" rows="5"></textarea><br /><br />
-              <button type="button">Add</button>
-              <button type="button">Remove</button> <br />
-              <br />
+              <div id="education-container">
+                <div class="education-entry">
+                  <label for="degree">Highest Degree:</label><br />
+                  <input type="text" id="degree" name="degree" placeholder="Master in Computer Science" required /><br /><br />
+                  <label for="institution">Institution:</label><br />
+                  <input type="text" id="institution" name="institution" placeholder="Paris University" required /><br /><br />
+                  <label for="institutionStartDate">Start Date:</label><br />
+                  <input type="date" name="institutionStartDate" id="institutionStartDate" required /> <br /><br />
+                  <label for="institutionEndDate">End Date:</label><br />
+                  <input type="date" name="institutionEndDate" id="institutionEndDate" /><br /><br />
+                  <label for="educationDescription">Describe your studies in a few lines:</label><br />
+                  <textarea name="educationDescription" id="educationDescription" rows="5"></textarea><br /><br />
+                  <button type="button" class="btn btn-success btn-sm btn-add-education">Add</button>
+                  <button type="button" class="btn btn-danger btn-sm btn-remove-education">Remove</button> <br />
+                  <br />
+                </div>
+              </div>
             </div>
             <div class="form-skills">
               <h2>4. Your Skills</h2>
-              <label for="skillName">Skill Name</label><br />
-              <input type="text" id="skillName" name="skillName" placeholder="JavaScript" required /><br /><br />
-              <label for="skillLevel">Skill Level</label><br />
-              <select id="skillLevel" name="skillLevel" required>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-                <option value="Expert">Expert</option></select
-              ><br /><br />
-              <button type="button">Add Skill</button>
-              <button type="button">Remove Skill</button> <br />
-              <br />
+              <div id="skills-container">
+                <div class="skill-entry">
+                  <label for="skillName">Skill Name</label><br />
+                  <input type="text" id="skillName" name="skillName" placeholder="JavaScript" required /><br /><br />
+                  <label for="skillLevel">Skill Level</label><br />
+                  <select id="skillLevel" name="skillLevel" required>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Expert">Expert</option></select
+                  ><br /><br />
+                  <button type="button" class="btn btn-success btn-sm btn-add-skill">Add Skill</button>
+                  <button type="button" class="btn btn-danger btn-sm btn-remove-skill">Remove Skill</button> <br />
+                  <br />
+                </div>
+              </div>
             </div>
 
-            <input type="submit" value="Generate CV" />
+            <input type="submit" class="btn btn-primary btn-lg" value="Export CV to PDF" />
           </form>
         </div>
 
         <div class="col-md-6">
           <div id="cv-preview">
+            <div class="preview-personal"></div>
+            <div class="preview-experience"></div>
+            <div class="preview-education"></div>
+            <div class="preview-skills"></div>
             <p>this will be the cv preview</p>
           </div>
         </div>

@@ -1,5 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-size: 16px;
+}
+
+.form-personalInfo,
+.form-workExperience,
+.form-education,
+.form-skills {
+  background-color: #f8f9fa;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  border-left: 0.3125rem solid #007bff;
+  border-radius: 0.75rem;
+}
+
+.experience-entry,
+.education-entry,
+.skill-entry {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 0.9375rem;
+  margin-bottom: 0.9375rem;
+  border-radius: 0.3125rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+label {
+  font-weight: 600;
+  margin-top: 0.625rem;
+  margin-bottom: 0.3125rem;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.625rem;
+  margin-bottom: 0.625rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
 #cv-preview {
   position: sticky;
-  top: 20px;
+  top: 2%;
   height: fit-content;
 }
