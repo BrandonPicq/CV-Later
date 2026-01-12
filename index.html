@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate your own CV</title>
+  </head>
+  <body>
+    <h1>Create your own CV!</h1>
+    <form action="" method="POST">
+      <h2>1. Your Personal Information</h2>
+
+      <label for="firstName">First Name:</label><br />
+      <input type="text" id="firstName" name="firstName" placeholder="John" required /><br /><br />
+      <label for="lastName">Last Name:</label><br />
+      <input type="text" id="lastName" name="lastName" placeholder="Doe" required /><br /><br />
+      <label for="email">Email: </label><br />
+      <input type="email" id="email" name="email" placeholder="john.doe@example.com" required /><br /><br />
+      <label for="professionalTitle">Professional Title</label><br />
+      <input type="text" id="professionalTitle" name="professionalTitle" placeholder="Software Engineer" /><br /><br />
+      <label for="phone">Phone</label><br />
+      <input type="tel" id="phone" name="phone" placeholder="+1234567890" required /><br /><br />
+      <label for="experienceSummary">Summarize your experience in two or three lines</label><br />
+      <textarea name="experienceSummary" id="experienceSummary" rows="3"></textarea><br /><br />
+      <br />
+      <h2>2. Your Work Experience</h2>
+      <label for="jobTitle">Job Title:</label><br />
+      <input type="text" id="jobTitle" name="jobTitle" placeholder="Data Scientist" required /><br /><br />
+      <label for="companyName">Company Name:</label><br />
+      <input type="text" id="companyName" name="companyName" placeholder="Tech Corp" required /><br /><br />
+      <label for="jobStartDate">Start Date:</label><br />
+      <input type="date" id="jobStartDate" name="jobStartDate" required /><br /><br />
+      <label for="jobEndDate">End Date:</label><br />
+      <input type="date" id="jobEndDate" name="jobEndDate" value="Present" required /><br /><br />
+      <label for="jobDescription">Describe your role and achievements in a few lines:</label><br />
+      <textarea name="jobDescription" id="jobDescription" rows="5"></textarea><br /><br />
+      <button type="button">Add Experience</button>
+      <button type="button">Remove Experience</button> <br />
+      <br />
+      <h2>3. Your Education</h2>
+      <label for="degree">Highest Degree:</label><br />
+      <input type="text" id="degree" name="degree" placeholder="Master in Computer Science" required /><br /><br />
+      <label for="institution">Institution:</label><br />
+      <input type="text" id="institution" name="institution" placeholder="Paris University" required /><br /><br />
+      <label for="institutionStartDate">Start Date:</label><br />
+      <input type="date" name="institutionStartDate" id="institutionStartDate" required /> <br /><br />
+      <label for="institutionEndDate">End Date:</label><br />
+      <input type="date" name="institutionEndDate" id="institutionEndDate" required /><br /><br />
+      <label for="educationDescription">Describe your studies in a few lines:</label><br />
+      <textarea name="educationDescription" id="educationDescription" rows="5"></textarea><br /><br />
+      <input type="submit" value="Generate CV" />
+    </form>
+  </body>
+</html>
