@@ -19,7 +19,8 @@ body {
 
 .experience-entry,
 .education-entry,
-.skill-entry {
+.skill-entry,
+.personal-info-entry {
   background-color: white;
   border: 1px solid #ddd;
   padding: 0.9375rem;
@@ -30,8 +31,7 @@ body {
 
 label {
   font-weight: 600;
-  margin-top: 0.625rem;
-  margin-bottom: 0.3125rem;
+
   display: block;
 }
 
@@ -43,7 +43,7 @@ textarea,
 select {
   width: 100%;
   padding: 0.625rem;
-  margin-bottom: 0.625rem;
+
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-family: inherit;
@@ -54,4 +54,37 @@ select {
   position: sticky;
   top: 2%;
   height: fit-content;
+  max-height: 29.7cm;
+  max-width: 21cm;
+  overflow: none;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.preview-personal h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.preview-personal .professional-title {
+  font-size: 1.125rem;
+  color: #666;
+}
+
+.preview-personal .contact-info {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.preview-experience h2,
+.preview-education h2,
+.preview-skills h2 {
+  font-size: 1.25rem;
+  color: #007bff;
+  border-bottom: 0.125rem solid #007bff;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }

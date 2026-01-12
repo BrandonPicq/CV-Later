@@ -20,20 +20,21 @@
           <form action="" method="POST" id="cv-form">
             <div class="form-personalInfo">
               <h2>1. Your Personal Information</h2>
-
-              <label for="firstName">First Name:</label><br />
-              <input type="text" id="firstName" name="firstName" placeholder="John" required /><br /><br />
-              <label for="lastName">Last Name:</label><br />
-              <input type="text" id="lastName" name="lastName" placeholder="Doe" required /><br /><br />
-              <label for="email">Email: </label><br />
-              <input type="email" id="email" name="email" placeholder="john.doe@example.com" required /><br /><br />
-              <label for="professionalTitle">Professional Title</label><br />
-              <input type="text" id="professionalTitle" name="professionalTitle" placeholder="Software Engineer" /><br /><br />
-              <label for="phone">Phone</label><br />
-              <input type="tel" id="phone" name="phone" placeholder="+1234567890" required /><br /><br />
-              <label for="experienceSummary">Summarize your experience in two or three lines</label><br />
-              <textarea name="experienceSummary" id="experienceSummary" rows="3"></textarea><br /><br />
-              <br />
+              <div class="personal-info-entry">
+                <label for="firstName">First Name:</label><br />
+                <input type="text" id="firstName" name="firstName" placeholder="John" required /><br /><br />
+                <label for="lastName">Last Name:</label><br />
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required /><br /><br />
+                <label for="email">Email: </label><br />
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required /><br /><br />
+                <label for="professionalTitle">Professional Title</label><br />
+                <input type="text" id="professionalTitle" name="professionalTitle" placeholder="Software Engineer" /><br /><br />
+                <label for="phone">Phone</label><br />
+                <input type="tel" id="phone" name="phone" placeholder="+1234567890" required /><br /><br />
+                <label for="experienceSummary">Summarize your experience in two or three lines</label><br />
+                <textarea name="experienceSummary" id="experienceSummary" rows="3"></textarea><br /><br />
+                <br />
+              </div>
             </div>
 
             <div class="form-workExperience">
@@ -102,11 +103,18 @@
 
         <div class="col-md-6">
           <div id="cv-preview">
-            <div class="preview-personal"></div>
-            <div class="preview-experience"></div>
+            <div class="preview-personal">
+              <h1 class="professional-name">John Doe</h1>
+              <h2 class="professional-title">Software Engineer</h2>
+              <p class="contact-info">Email: john.doe@example.com</p>
+              <p class="contact-info">Phone: +1234567890</p>
+            </div>
+            <div class="preview-experience">
+              <h2>Experience</h2>
+              <div class="experience
+            </div>
             <div class="preview-education"></div>
             <div class="preview-skills"></div>
-            <p>this will be the cv preview</p>
           </div>
         </div>
       </div>
