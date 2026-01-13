@@ -5,6 +5,8 @@ function updatePreview(type) {
     updatePreviewEducation();
   } else if (type === "skill") {
     updatePreviewSkills();
+  } else if (type === "personal") {
+    updatePreviewPersonal();
   }
 }
 function updatePreviewExperiences() {
@@ -64,4 +66,42 @@ function updatePreviewSkills() {
 
   html += "</div>";
   previewSection.innerHTML = html;
+}
+
+function updatePreviewPersonal() {
+  const firstName = firstNameInput.value;
+  const lastName = lastNameInput.value;
+  const email = emailInput.value;
+  const phone = phoneInput.value;
+  const professionalTitle = professionalTitleInput.value;
+  const experienceSummary = experienceSummaryInput.value;
+
+  const fullName = `${firstName} ${lastName}`.trim();
+
+  let contactInfo = "";
+
+  if (email) {
+    contactInfo = "Email: " + email;
+  }
+  if (phone) {
+    if (email) {
+      contactInfo += " | ";
+    }
+    contactInfo += "Phone: " + phone;
+  }
+
+  let html = `
+    <h1>${fullName}</h1>
+    <p class="professional-title">${professionalTitle}</p>
+  `;
+
+  if (contactInfo) {
+    html += `<p class="contact-info">${contactInfo}</p>`;
+  }
+
+  if (experienceSummary) {
+    html += `<p class="experience-summary">${experienceSummary}</p>`;
+  }
+
+  previewPersonal.innerHTML = html;
 }
