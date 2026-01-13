@@ -18,6 +18,7 @@ function updatePreviewExperiences() {
           <span class="job-title">${exp.jobTitle}</span>
           <span class="company">${exp.companyName}</span>
           <span class="dates">${exp.jobStartDate} - ${exp.jobEndDate || "Present"}</span>
+          <button class="btn-remove-entry" onclick="removeEntry('experience', ${index})">×</button>
         </p>
         <p class="description">${exp.jobDescription}</p>
       </div>
@@ -38,6 +39,7 @@ function updatePreviewEducation() {
           <span class="degree-title">${edu.degree}</span>
           <span class="institution">${edu.institution}</span>
           <span class="dates">${edu.institutionStartDate} - ${edu.institutionEndDate || "Present"}</span>
+          <button class="btn-remove-entry" onclick="removeEntry('education', ${index})">×</button>
         </p>
         <p class="description">${edu.educationDescription}</p>
       </div>
@@ -52,7 +54,12 @@ function updatePreviewSkills() {
   let html = "<h2>Skills</h2><div class='skills-container'>";
 
   skillsData.forEach((skill, index) => {
-    html += `<span class="skill-tag">${skill.skillName} - ${skill.skillLevel}</span>`;
+    html += `
+      <div class="skill-item">
+        <span class="skill-tag">${skill.skillName} - ${skill.skillLevel}</span>
+        <button class="btn-remove-entry" onclick="removeEntry('skill', ${index})">×</button>
+      </div>
+    `;
   });
 
   html += "</div>";
