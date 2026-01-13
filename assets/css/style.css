@@ -152,3 +152,46 @@ select {
 .preview-personal p {
   margin: 0 0 0.25rem 0;
 }
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+  form {
+    display: none;
+  }
+
+  .col-md-6:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  #cv-preview {
+    background-color: white;
+    max-height: none;
+    overflow: visible;
+    position: static;
+    top: auto;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .preview-experience h2,
+  .preview-education h2,
+  .preview-skills h2 {
+    color: #000;
+    border-color: #333;
+  }
+
+  .preview-job,
+  .preview-education-item {
+    page-break-inside: avoid;
+  }
+
+  .preview-experience,
+  .preview-education,
+  .preview-skills {
+    page-break-inside: avoid;
+  }
+}
