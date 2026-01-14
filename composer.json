@@ -1,0 +1,13 @@
+{
+  "name": "epitech/cv-later",
+  "description": "Mon générateur de CV en ligne !",
+  "type": "project",
+  "require": {},
+  "authors": [
+    {
+      "name": "Brandon Picq",
+      "email": "brandon.picq@epitech.eu"
+    }
+  ],
+  "license": "MIT"
+}

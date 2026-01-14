@@ -8,26 +8,26 @@ function addEntry(type) {
   if (type === "experience") {
     data = experiencesData;
     inputs = {
-      jobTitle: document.getElementById("jobTitle").value,
-      companyName: document.getElementById("companyName").value,
-      jobStartDate: document.getElementById("jobStartDate").value,
-      jobEndDate: document.getElementById("jobEndDate").value,
-      jobDescription: document.getElementById("jobDescription").value,
+      jobTitle: jobTitleInput.value,
+      companyName: companyNameInput.value,
+      jobStartDate: jobStartDateInput.value,
+      jobEndDate: jobEndDateInput.value,
+      jobDescription: jobDescriptionInput.value,
     };
   } else if (type === "education") {
     data = educationsData;
     inputs = {
-      degree: document.getElementById("degree").value,
-      institution: document.getElementById("institution").value,
-      institutionStartDate: document.getElementById("institutionStartDate").value,
-      institutionEndDate: document.getElementById("institutionEndDate").value,
-      educationDescription: document.getElementById("educationDescription").value,
+      degree: degreeInput.value,
+      institution: institutionInput.value,
+      institutionStartDate: institutionStartDateInput.value,
+      institutionEndDate: institutionEndDateInput.value,
+      educationDescription: educationDescriptionInput.value,
     };
   } else if (type === "skill") {
     data = skillsData;
     inputs = {
-      skillName: document.getElementById("skillName").value,
-      skillLevel: document.getElementById("skillLevel").value,
+      skillName: skillNameInput.value,
+      skillLevel: skillLevelInput.value,
     };
   }
 

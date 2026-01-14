@@ -1,33 +1,28 @@
+//jan 14. découverte de fonctions soeurs!
+
 function validate(type) {
-  if (type === "experience") {
-    return validateExperiences();
-  } else if (type === "education") {
-    return validateEducation();
-  } else if (type === "skill") {
-    return validateSkills();
-  }
+  if (type === "experience") return validateExperiences();
+  if (type === "education") return validateEducation();
+  if (type === "skill") return validateSkills();
+  if (type === "submit") return validatePersonalData();
 }
 
 function validateExperiences() {
   clearErrors();
   let validationPassed = true;
 
-  const jobTitle = document.getElementById("jobTitle").value.trim();
-  const companyName = document.getElementById("companyName").value.trim();
-  const jobStartDate = document.getElementById("jobStartDate").value.trim();
-
-  if (jobTitle === "") {
-    displayError("jobTitleError", "Job Title must be filled out");
+  if (jobTitleInput.value.trim() === "") {
+    displayError("jobTitleError", "Please fill in a job title");
     validationPassed = false;
   }
 
-  if (companyName === "") {
-    displayError("companyNameError", "Company Name must be filled out");
+  if (companyNameInput.value.trim() === "") {
+    displayError("companyNameError", "Please fill in a company name");
     validationPassed = false;
   }
 
-  if (jobStartDate === "") {
-    displayError("jobStartDateError", "There must be a Start Date");
+  if (jobStartDateInput.value.trim() === "") {
+    displayError("jobStartDateError", "There must be a start date");
     validationPassed = false;
   }
 
@@ -38,22 +33,18 @@ function validateEducation() {
   clearErrors();
   let validationPassed = true;
 
-  const degree = document.getElementById("degree").value.trim();
-  const institution = document.getElementById("institution").value.trim();
-  const institutionStartDate = document.getElementById("institutionStartDate").value.trim();
-
-  if (degree === "") {
-    displayError("degreeError", "Degree must be filled out");
+  if (degreeInput.value.trim() === "") {
+    displayError("degreeError", "Please fill in a degree");
     validationPassed = false;
   }
 
-  if (institution === "") {
-    displayError("institutionError", "Institution must be filled out");
+  if (institutionInput.value.trim() === "") {
+    displayError("institutionError", "Please fill in an institution");
     validationPassed = false;
   }
 
-  if (institutionStartDate === "") {
-    displayError("institutionStartDateError", "There must be a Start Date");
+  if (institutionStartDateInput.value.trim() === "") {
+    displayError("institutionStartDateError", "There must be a start date");
     validationPassed = false;
   }
 
@@ -64,18 +55,41 @@ function validateSkills() {
   clearErrors();
   let validationPassed = true;
 
-  const skillName = document.getElementById("skillName").value.trim();
-  const skillLevel = document.getElementById("skillLevel").value;
-
-  if (skillName === "") {
-    displayError("skillNameError", "Skill Name must be filled out");
+  if (skillNameInput.value.trim() === "") {
+    displayError("skillNameError", "You must indicate a skill name");
     validationPassed = false;
   }
 
-  if (skillLevel === "") {
-    displayError("skillLevelError", "Please select a Skill Level");
+  if (skillLevelInput.value === "") {
+    displayError("skillLevelError", "Please select a skill level");
     validationPassed = false;
   }
 
+  return validationPassed;
+}
+
+function validatePersonalData() {
+  clearErrors();
+  let errorCount = 0;
+  let validationPassed = false;
+
+  if (fnInput.value.trim() === "") {
+    displayError("firstNameError", "First name is required");
+    errorCount++;
+  }
+
+  if (lnInput.value.trim() === "") {
+    displayError("lastNameError", "Last name is required");
+    errorCount++;
+  }
+
+  if (mailInput.value.trim() === "") {
+    displayError("emailError", "Email is required");
+    errorCount++;
+  }
+
+  if (errorCount === 0) {
+    validationPassed = true;
+  }
   return validationPassed;
 }

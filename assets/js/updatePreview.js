@@ -13,6 +13,8 @@ function updatePreviewExperiences() {
   const previewSection = document.getElementById("preview-experience");
   let html = "<h2>Professional Experience</h2>";
 
+  // Potentiellement toucher le html en fonction de l'export pdf
+
   experiencesData.forEach((exp, index) => {
     html += `
       <div class="preview-job">
@@ -76,7 +78,7 @@ function updatePreviewPersonal() {
   const professionalTitle = titleInput.value;
   const experienceSummary = summaryInput.value;
 
-  const fullName = `${firstName} ${lastName}`.trim();
+  const fullName = (firstName + " " + lastName).trim();
 
   let contactInfo = "";
 
