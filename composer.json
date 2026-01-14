@@ -2,7 +2,9 @@
   "name": "epitech/cv-later",
   "description": "Mon générateur de CV en ligne !",
   "type": "project",
-  "require": {},
+  "require": {
+    "dompdf/dompdf": "^3.1"
+  },
   "authors": [
     {
       "name": "Brandon Picq",

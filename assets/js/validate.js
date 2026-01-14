@@ -88,6 +88,11 @@ function validatePersonalData() {
     errorCount++;
   }
 
+  if (phoneInput.value.trim() === "") {
+    displayError("phoneError", "Phone number is required");
+    errorCount++;
+  }
+
   if (errorCount === 0) {
     validationPassed = true;
   }
