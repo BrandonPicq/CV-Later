@@ -10,7 +10,7 @@ function updatePreview(type) {
   }
 }
 function updatePreviewExperiences() {
-  const previewSection = document.querySelector(".preview-experience");
+  const previewSection = document.getElementById("preview-experience");
   let html = "<h2>Professional Experience</h2>";
 
   experiencesData.forEach((exp, index) => {
@@ -31,7 +31,7 @@ function updatePreviewExperiences() {
 }
 
 function updatePreviewEducation() {
-  const previewSection = document.querySelector(".preview-education");
+  const previewSection = document.getElementById("preview-education");
   let html = "<h2>Education</h2>";
 
   educationsData.forEach((edu, index) => {
@@ -52,7 +52,7 @@ function updatePreviewEducation() {
 }
 
 function updatePreviewSkills() {
-  const previewSection = document.querySelector(".preview-skills");
+  const previewSection = document.getElementById("preview-skills");
   let html = "<h2>Skills</h2><div class='skills-container'>";
 
   skillsData.forEach((skill, index) => {
@@ -69,12 +69,12 @@ function updatePreviewSkills() {
 }
 
 function updatePreviewPersonal() {
-  const firstName = firstNameInput.value;
-  const lastName = lastNameInput.value;
-  const email = emailInput.value;
+  const firstName = fnInput.value;
+  const lastName = lnInput.value;
+  const email = mailInput.value;
   const phone = phoneInput.value;
-  const professionalTitle = professionalTitleInput.value;
-  const experienceSummary = experienceSummaryInput.value;
+  const professionalTitle = titleInput.value;
+  const experienceSummary = summaryInput.value;
 
   const fullName = `${firstName} ${lastName}`.trim();
 
@@ -103,5 +103,5 @@ function updatePreviewPersonal() {
     html += `<p class="experience-summary">${experienceSummary}</p>`;
   }
 
-  previewPersonal.innerHTML = html;
+  prevPersonal.innerHTML = html;
 }

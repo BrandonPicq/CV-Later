@@ -1,31 +1,27 @@
 const form = document.getElementById("cv-form");
-const previewPersonal = document.querySelector(".preview-personal");
-const previewExperience = document.querySelector(".preview-experience");
-const previewEducation = document.querySelector(".preview-education");
-const previewSkills = document.querySelector(".preview-skills");
-const firstNameInput = document.getElementById("firstName");
-const lastNameInput = document.getElementById("lastName");
-const emailInput = document.getElementById("email");
+const prevPersonal = document.getElementById("preview-personal");
+const prevExperience = document.getElementById("preview-experience");
+const prevEducation = document.getElementById("preview-education");
+const prevSkills = document.getElementById("preview-skills");
+const fnInput = document.getElementById("firstName");
+const lnInput = document.getElementById("lastName");
+const mailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
-const professionalTitleInput = document.getElementById("professionalTitle");
-const experienceSummaryInput = document.getElementById("experienceSummary");
-
-const addExperienceBtn = document.querySelector(".btn-add-experience");
-const addEducationBtn = document.querySelector(".btn-add-education");
-const addSkillBtn = document.querySelector(".btn-add-skill");
-
+const titleInput = document.getElementById("professionalTitle");
+const summaryInput = document.getElementById("experienceSummary");
+const addxpBtn = document.getElementById("btn-add-experience");
+const addeducationBtn = document.getElementById("btn-add-education");
+const addSkillBtn = document.getElementById("btn-add-skill");
 let experiencesData = [];
 let educationsData = [];
 let skillsData = [];
 
-console.log("Script loaded successfully!");
-
-addExperienceBtn.addEventListener("click", () => addEntry("experience"));
-addEducationBtn.addEventListener("click", () => addEntry("education"));
+addxpBtn.addEventListener("click", () => addEntry("experience"));
+addeducationBtn.addEventListener("click", () => addEntry("education"));
 addSkillBtn.addEventListener("click", () => addEntry("skill"));
-firstNameInput.addEventListener("input", updatePreviewPersonal);
-lastNameInput.addEventListener("input", updatePreviewPersonal);
-emailInput.addEventListener("input", updatePreviewPersonal);
+fnInput.addEventListener("input", updatePreviewPersonal);
+lnInput.addEventListener("input", updatePreviewPersonal);
+mailInput.addEventListener("input", updatePreviewPersonal);
 phoneInput.addEventListener("input", updatePreviewPersonal);
-professionalTitleInput.addEventListener("input", updatePreviewPersonal);
-experienceSummaryInput.addEventListener("input", updatePreviewPersonal);
+titleInput.addEventListener("input", updatePreviewPersonal);
+summaryInput.addEventListener("input", updatePreviewPersonal);

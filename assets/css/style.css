@@ -34,14 +34,12 @@ label {
 
   display: block;
 }
-
 .error-message {
   color: #dc3545;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   display: none;
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="tel"],
