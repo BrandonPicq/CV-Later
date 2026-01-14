@@ -1,5 +1,9 @@
 function addEntry(type) {
-  let data, inputs, isValid;
+  if (!validate(type)) {
+    return;
+  }
+
+  let data, inputs;
 
   if (type === "experience") {
     data = experiencesData;
@@ -10,7 +14,6 @@ function addEntry(type) {
       jobEndDate: document.getElementById("jobEndDate").value,
       jobDescription: document.getElementById("jobDescription").value,
     };
-    isValid = inputs.jobTitle && inputs.companyName && inputs.jobStartDate;
   } else if (type === "education") {
     data = educationsData;
     inputs = {
@@ -20,19 +23,12 @@ function addEntry(type) {
       institutionEndDate: document.getElementById("institutionEndDate").value,
       educationDescription: document.getElementById("educationDescription").value,
     };
-    isValid = inputs.degree && inputs.institution && inputs.institutionStartDate;
   } else if (type === "skill") {
     data = skillsData;
     inputs = {
       skillName: document.getElementById("skillName").value,
       skillLevel: document.getElementById("skillLevel").value,
     };
-    isValid = inputs.skillName && inputs.skillLevel;
-  }
-
-  if (!isValid) {
-    alert("Please fill in all required fields");
-    return;
   }
 
   data.push(inputs);

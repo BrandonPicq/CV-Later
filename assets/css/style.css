@@ -35,6 +35,13 @@ label {
   display: block;
 }
 
+.error-message {
+  color: #dc3545;
+  font-size: 0.75rem;
+  display: none;
+  margin-top: 0.25rem;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
