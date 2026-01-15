@@ -32,12 +32,10 @@ let skillsData = [];
 addxpBtn.addEventListener("click", () => addEntry("experience"));
 addeducationBtn.addEventListener("click", () => addEntry("education"));
 addSkillBtn.addEventListener("click", () => addEntry("skill"));
-fnInput.addEventListener("input", updatePreviewPersonal);
-lnInput.addEventListener("input", updatePreviewPersonal);
-mailInput.addEventListener("input", updatePreviewPersonal);
-phoneInput.addEventListener("input", updatePreviewPersonal);
-titleInput.addEventListener("input", updatePreviewPersonal);
-summaryInput.addEventListener("input", updatePreviewPersonal);
+const personalInputs = [fnInput, lnInput, mailInput, phoneInput, titleInput, summaryInput];
+personalInputs.forEach((input) => {
+  input.addEventListener("input", () => updatePreview("personal"));
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -56,15 +54,20 @@ form.addEventListener("submit", (e) => {
     body: completeData,
   })
     .then((response) => {
+<<<<<<< HEAD
       if (!response.ok) {
         return response.json().then((data) => {
           throw new Error(data.error || "Server error");
         });
       }
+=======
+      if (!response.ok) throw new Error("Server error");
+>>>>>>> 677eacf4ca06d0a020f7927a1794087c35ffc525
       return response.blob();
     })
     .then((blob) => {
       const url = window.URL.createObjectURL(blob);
+<<<<<<< HEAD
       const link = document.createElement("a");
       link.href = url;
       link.download = `${fnInput.value}_${lnInput.value}_CV.pdf`;
@@ -76,5 +79,17 @@ form.addEventListener("submit", (e) => {
     .catch((error) => {
       console.error("Error:", error.message);
       alert("Error generating PDF: " + error.message);
+=======
+      const lien = document.createElement("a");
+      lien.href = url;
+      lien.download = `${fnInput.value}_${lnInput.value}_CV.pdf`;
+      document.body.appendChild(lien);
+      lien.click();
+      document.body.removeChild(lien);
+      window.URL.revokeObjectURL(url);
+    })
+    .catch((error) => {
+      console.error("Erreur:", error);
+>>>>>>> 677eacf4ca06d0a020f7927a1794087c35ffc525
     });
 });
