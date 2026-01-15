@@ -13,6 +13,6 @@ function clearForm(type) {
     educationDescriptionInput.value = "";
   } else if (type === "skill") {
     skillNameInput.value = "";
-    skillLevelInput.value = "";
+    skillLevelInput.value = "Beginner";
   }
 }

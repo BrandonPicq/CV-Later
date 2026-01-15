@@ -1,3 +1,10 @@
+function escapeHtml(text) {
+  if (!text) return "";
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
 function updatePreview(type) {
   if (type === "experience") {
     updatePreviewExperiences();
@@ -13,18 +20,15 @@ function updatePreviewExperiences() {
   const previewSection = document.getElementById("preview-experience");
   let html = "<h2>Professional Experience</h2>";
 
-  // Potentiellement toucher le html en fonction de l'export pdf
-
-  experiencesData.forEach((exp, index) => {
+  experiencesData.forEach((exp) => {
     html += `
       <div class="preview-job">
         <p class="job-header">
-          <span class="job-title">${exp.jobTitle}</span>
-          <span class="company">${exp.companyName}</span>
-          <span class="dates">${exp.jobStartDate} - ${exp.jobEndDate || "Present"}</span>
-          <button class="btn-remove-entry" onclick="removeEntry('experience', ${index})">×</button>
+          <span class="job-title">${escapeHtml(exp.jobTitle)}</span>
+          <span class="company">${escapeHtml(exp.companyName)}</span>
+          <span class="dates">${escapeHtml(exp.jobStartDate)} - ${escapeHtml(exp.jobEndDate) || "Present"}</span>
         </p>
-        <p class="description">${exp.jobDescription}</p>
+        <p class="description">${escapeHtml(exp.jobDescription)}</p>
       </div>
     `;
   });
@@ -36,16 +40,15 @@ function updatePreviewEducation() {
   const previewSection = document.getElementById("preview-education");
   let html = "<h2>Education</h2>";
 
-  educationsData.forEach((edu, index) => {
+  educationsData.forEach((edu) => {
     html += `
       <div class="preview-education-item">
         <p class="education-header">
-          <span class="degree-title">${edu.degree}</span>
-          <span class="institution">${edu.institution}</span>
-          <span class="dates">${edu.institutionStartDate} - ${edu.institutionEndDate || "Present"}</span>
-          <button class="btn-remove-entry" onclick="removeEntry('education', ${index})">×</button>
+          <span class="degree-title">${escapeHtml(edu.degree)}</span>
+          <span class="institution">${escapeHtml(edu.institution)}</span>
+          <span class="dates">${escapeHtml(edu.institutionStartDate)} - ${escapeHtml(edu.institutionEndDate) || "Present"}</span>
         </p>
-        <p class="description">${edu.educationDescription}</p>
+        <p class="description">${escapeHtml(edu.educationDescription)}</p>
       </div>
     `;
   });
@@ -57,11 +60,10 @@ function updatePreviewSkills() {
   const previewSection = document.getElementById("preview-skills");
   let html = "<h2>Skills</h2><div class='skills-container'>";
 
-  skillsData.forEach((skill, index) => {
+  skillsData.forEach((skill) => {
     html += `
       <div class="skill-item">
-        <span class="skill-tag">${skill.skillName} - ${skill.skillLevel}</span>
-        <button class="btn-remove-entry" onclick="removeEntry('skill', ${index})">×</button>
+        <span class="skill-tag">${escapeHtml(skill.skillName)} - ${escapeHtml(skill.skillLevel)}</span>
       </div>
     `;
   });
@@ -71,12 +73,12 @@ function updatePreviewSkills() {
 }
 
 function updatePreviewPersonal() {
-  const firstName = fnInput.value;
-  const lastName = lnInput.value;
-  const email = mailInput.value;
-  const phone = phoneInput.value;
-  const professionalTitle = titleInput.value;
-  const experienceSummary = summaryInput.value;
+  const firstName = escapeHtml(fnInput.value);
+  const lastName = escapeHtml(lnInput.value);
+  const email = escapeHtml(mailInput.value);
+  const phone = escapeHtml(phoneInput.value);
+  const professionalTitle = escapeHtml(titleInput.value);
+  const experienceSummary = escapeHtml(summaryInput.value);
 
   const fullName = (firstName + " " + lastName).trim();
 

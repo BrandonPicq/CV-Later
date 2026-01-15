@@ -26,6 +26,13 @@ function validateExperiences() {
     validationPassed = false;
   }
 
+  if (jobStartDateInput.value && jobEndDateInput.value) {
+    if (new Date(jobEndDateInput.value) < new Date(jobStartDateInput.value)) {
+      displayError("jobStartDateError", "End date must be after start date");
+      validationPassed = false;
+    }
+  }
+
   return validationPassed;
 }
 
@@ -46,6 +53,13 @@ function validateEducation() {
   if (institutionStartDateInput.value.trim() === "") {
     displayError("institutionStartDateError", "There must be a start date");
     validationPassed = false;
+  }
+
+  if (institutionStartDateInput.value && institutionEndDateInput.value) {
+    if (new Date(institutionEndDateInput.value) < new Date(institutionStartDateInput.value)) {
+      displayError("institutionStartDateError", "End date must be after start date");
+      validationPassed = false;
+    }
   }
 
   return validationPassed;
@@ -86,10 +100,31 @@ function validatePersonalData() {
   if (mailInput.value.trim() === "") {
     displayError("emailError", "Email is required");
     errorCount++;
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(mailInput.value.trim())) {
+      displayError("emailError", "Please enter a valid email address");
+      errorCount++;
+    }
   }
 
   if (phoneInput.value.trim() === "") {
     displayError("phoneError", "Phone number is required");
+    errorCount++;
+  }
+
+  if (experiencesData.length === 0) {
+    alert("Please add at least one work experience");
+    errorCount++;
+  }
+
+  if (educationsData.length === 0) {
+    alert("Please add at least one education entry");
+    errorCount++;
+  }
+
+  if (skillsData.length === 0) {
+    alert("Please add at least one skill");
     errorCount++;
   }
 

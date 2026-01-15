@@ -55,13 +55,26 @@ form.addEventListener("submit", (e) => {
     },
     body: completeData,
   })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.error) {
-        console.error("Server error:", data.error);
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((data) => {
+          throw new Error(data.error || "Server error");
+        });
       }
+      return response.blob();
+    })
+    .then((blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${fnInput.value}_${lnInput.value}_CV.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
     })
     .catch((error) => {
-      console.error("Fetch error:", error);
+      console.error("Error:", error.message);
+      alert("Error generating PDF: " + error.message);
     });
 });
