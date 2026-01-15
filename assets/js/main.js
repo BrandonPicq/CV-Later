@@ -32,12 +32,10 @@ let skillsData = [];
 addxpBtn.addEventListener("click", () => addEntry("experience"));
 addeducationBtn.addEventListener("click", () => addEntry("education"));
 addSkillBtn.addEventListener("click", () => addEntry("skill"));
-fnInput.addEventListener("input", updatePreviewPersonal);
-lnInput.addEventListener("input", updatePreviewPersonal);
-mailInput.addEventListener("input", updatePreviewPersonal);
-phoneInput.addEventListener("input", updatePreviewPersonal);
-titleInput.addEventListener("input", updatePreviewPersonal);
-summaryInput.addEventListener("input", updatePreviewPersonal);
+const personalInputs = [fnInput, lnInput, mailInput, phoneInput, titleInput, summaryInput];
+personalInputs.forEach((input) => {
+  input.addEventListener("input", () => updatePreview("personal"));
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -55,13 +53,21 @@ form.addEventListener("submit", (e) => {
     },
     body: completeData,
   })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.error) {
-        console.error("Server error:", data.error);
-      }
+    .then((response) => {
+      if (!response.ok) throw new Error("Server error");
+      return response.blob();
+    })
+    .then((blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const lien = document.createElement("a");
+      lien.href = url;
+      lien.download = `${fnInput.value}_${lnInput.value}_CV.pdf`;
+      document.body.appendChild(lien);
+      lien.click();
+      document.body.removeChild(lien);
+      window.URL.revokeObjectURL(url);
     })
     .catch((error) => {
-      console.error("Fetch error:", error);
+      console.error("Erreur:", error);
     });
 });

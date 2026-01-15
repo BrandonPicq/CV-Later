@@ -5,7 +5,7 @@ function objectifyData() {
       lastName: lnInput.value,
       email: mailInput.value,
       phone: phoneInput.value,
-      headline: titleInput.value,
+      wantedTitle: titleInput.value,
       summary: summaryInput.value,
     },
     pastWork: experiencesData,

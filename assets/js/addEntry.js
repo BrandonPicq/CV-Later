@@ -33,6 +33,8 @@ function addEntry(type) {
 
   data.push(inputs);
 
+  displayFormEntries(type);
+
   updatePreview(type);
 
   clearForm(type);
