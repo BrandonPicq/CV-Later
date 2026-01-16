@@ -54,32 +54,15 @@ form.addEventListener("submit", (e) => {
     body: completeData,
   })
     .then((response) => {
-<<<<<<< HEAD
       if (!response.ok) {
         return response.json().then((data) => {
-          throw new Error(data.error || "Server error");
+          throw new Error(data.error || "Probleme sur le php");
         });
       }
-=======
-      if (!response.ok) throw new Error("Server error");
->>>>>>> 677eacf4ca06d0a020f7927a1794087c35ffc525
       return response.blob();
     })
     .then((blob) => {
       const url = window.URL.createObjectURL(blob);
-<<<<<<< HEAD
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${fnInput.value}_${lnInput.value}_CV.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    })
-    .catch((error) => {
-      console.error("Error:", error.message);
-      alert("Error generating PDF: " + error.message);
-=======
       const lien = document.createElement("a");
       lien.href = url;
       lien.download = `${fnInput.value}_${lnInput.value}_CV.pdf`;
@@ -89,7 +72,7 @@ form.addEventListener("submit", (e) => {
       window.URL.revokeObjectURL(url);
     })
     .catch((error) => {
-      console.error("Erreur:", error);
->>>>>>> 677eacf4ca06d0a020f7927a1794087c35ffc525
+      console.error("Error:", error.message);
+      alert("Error generating PDF: " + error.message);
     });
 });
