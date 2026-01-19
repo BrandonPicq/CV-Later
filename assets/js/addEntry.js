@@ -31,11 +31,13 @@ function addEntry(type) {
     };
   }
 
+  console.log(experiencesData);
+
   data.push(inputs);
 
   displayFormEntries(type);
 
-  updatePreview(type);
-
   clearForm(type);
+
+  updatePreview(type);
 }

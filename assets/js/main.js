@@ -32,9 +32,25 @@ let skillsData = [];
 addxpBtn.addEventListener("click", () => addEntry("experience"));
 addeducationBtn.addEventListener("click", () => addEntry("education"));
 addSkillBtn.addEventListener("click", () => addEntry("skill"));
+
 const personalInputs = [fnInput, lnInput, mailInput, phoneInput, titleInput, summaryInput];
 personalInputs.forEach((input) => {
   input.addEventListener("input", () => updatePreview("personal"));
+});
+
+const experienceInputs = [jobTitleInput, companyNameInput, jobStartDateInput, jobEndDateInput, jobDescriptionInput];
+experienceInputs.forEach((input) => {
+  input.addEventListener("input", () => updatePreview("experience"));
+});
+
+const educationInputs = [degreeInput, institutionInput, institutionStartDateInput, institutionEndDateInput, educationDescriptionInput];
+educationInputs.forEach((input) => {
+  input.addEventListener("input", () => updatePreview("education"));
+});
+
+const skillInputs = [skillNameInput, skillLevelInput];
+skillInputs.forEach((input) => {
+  input.addEventListener("input", () => updatePreview("skill"));
 });
 
 form.addEventListener("submit", (e) => {

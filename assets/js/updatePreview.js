@@ -33,6 +33,21 @@ function updatePreviewExperiences() {
     `;
   });
 
+  if (jobTitleInput.value || companyNameInput.value || jobStartDateInput.value) {
+    html += `
+      <div class="preview-job" style="opacity: 0.7;">
+        <p class="job-header">
+          <span class="job-title">${escapeHtml(jobTitleInput.value)}</span>
+          <span class="company">${escapeHtml(companyNameInput.value)}</span>
+          <span class="dates">${escapeHtml(jobStartDateInput.value)} ${
+      jobEndDateInput.value ? " - " + escapeHtml(jobEndDateInput.value) : ""
+    }</span>
+        </p>
+        ${jobDescriptionInput.value ? `<p class="description">${escapeHtml(jobDescriptionInput.value)}</p>` : ""}
+      </div>
+    `;
+  }
+
   previewSection.innerHTML = html;
 }
 
@@ -53,6 +68,21 @@ function updatePreviewEducation() {
     `;
   });
 
+  if (degreeInput.value || institutionInput.value || institutionStartDateInput.value) {
+    html += `
+      <div class="preview-education-item" style="opacity: 0.7;">
+        <p class="education-header">
+          <span class="degree-title">${escapeHtml(degreeInput.value)}</span>
+          <span class="institution">${escapeHtml(institutionInput.value)}</span>
+          <span class="dates">${escapeHtml(institutionStartDateInput.value)} ${
+      institutionEndDateInput.value ? " - " + escapeHtml(institutionEndDateInput.value) : ""
+    }</span>
+        </p>
+        ${educationDescriptionInput.value ? `<p class="description">${escapeHtml(educationDescriptionInput.value)}</p>` : ""}
+      </div>
+    `;
+  }
+
   previewSection.innerHTML = html;
 }
 
@@ -67,6 +97,14 @@ function updatePreviewSkills() {
       </div>
     `;
   });
+
+  if (skillNameInput.value) {
+    html += `
+      <div class="skill-item" style="opacity: 0.7;">
+        <span class="skill-tag">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>
+      </div>
+    `;
+  }
 
   html += "</div>";
   previewSection.innerHTML = html;
