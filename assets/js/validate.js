@@ -1,5 +1,3 @@
-//jan 14. découverte de fonctions soeurs!
-
 function validate(type) {
   if (type === "experience") return validateExperiences();
   if (type === "education") return validateEducation();

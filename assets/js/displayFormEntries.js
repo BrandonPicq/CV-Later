@@ -1,11 +1,7 @@
 function displayFormEntries(type) {
-  if (type === "experience") {
-    displayExperienceEntries();
-  } else if (type === "education") {
-    displayEducationEntries();
-  } else if (type === "skill") {
-    displaySkillEntries();
-  }
+  if (type === "experience") return displayExperienceEntries();
+  else if (type === "education") return displayEducationEntries();
+  else if (type === "skill") return displaySkillEntries();
 }
 
 function displayExperienceEntries() {
@@ -24,7 +20,13 @@ function displayExperienceEntries() {
           <div class="accordion-body">
             <p><strong>${exp.companyName}</strong> | ${exp.jobStartDate} - ${exp.jobEndDate || "Present"}</p>
             <p>${exp.jobDescription}</p>
-            <button type="button" class="btn btn-outline-danger btn-sm w-100 mt-2" onclick="removeEntry('experience', ${index})">Remove</button>
+            <div class="row gap-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="editEntry('experience', ${index})">Edit</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-danger btn-sm w-100" onclick="removeEntry('experience', ${index})">Remove</button>
+            </div>
           </div>
         </div>
       </div>
@@ -51,7 +53,13 @@ function displayEducationEntries() {
           <div class="accordion-body">
             <p><strong>${edu.institution}</strong> | ${edu.institutionStartDate} - ${edu.institutionEndDate || "Present"}</p>
             <p>${edu.educationDescription}</p>
-            <button type="button" class="btn btn-outline-danger btn-sm w-100 mt-2" onclick="removeEntry('education', ${index})">Remove</button>
+            <div class="row gap-2">
+              <div class="col">
+                <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="editEntry('education', ${index})">Edit</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-danger btn-sm w-100" onclick="removeEntry('education', ${index})">Remove</button>
+              </div>
           </div>
         </div>
       </div>
@@ -76,7 +84,14 @@ function displaySkillEntries() {
         </h2>
         <div id="skill-${index}" class="accordion-collapse collapse" data-bs-parent="#skillsAccordion">
           <div class="accordion-body">
-            <button type="button" class="btn btn-outline-danger btn-sm w-100 mt-2" onclick="removeEntry('skill', ${index})">Remove</button>
+            <div class="row gap-2">
+              <div class="col">
+                <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="editEntry('skill', ${index})">Edit</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-danger btn-sm w-100" onclick="removeEntry('skill', ${index})">Remove</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

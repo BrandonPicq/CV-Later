@@ -180,7 +180,8 @@
             <div class="skills-container">
                 <?php foreach ($data['skills'] as $skill): ?>
                     <div class="skill-item">
-                        <span class="skill-tag"><?php echo $skill['skillName']; ?> - <?php echo $skill['skillLevel']; ?></span>
+                        <span class="skill-tag">
+                            <?php echo $skill['skillName']; ?> - <?php echo $skill['skillLevel']; ?></span>
                     </div>
                 <?php endforeach; ?>
             </div>

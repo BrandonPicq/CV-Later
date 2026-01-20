@@ -20,20 +20,35 @@ function updatePreviewExperiences() {
   const previewSection = document.getElementById("preview-experience");
   let html = "<h2>Professional Experience</h2>";
 
-  experiencesData.forEach((exp) => {
-    html += `
-      <div class="preview-job">
-        <p class="job-header">
-          <span class="job-title">${escapeHtml(exp.jobTitle)}</span>
-          <span class="company">${escapeHtml(exp.companyName)}</span>
-          <span class="dates">${escapeHtml(exp.jobStartDate)} - ${escapeHtml(exp.jobEndDate) || "Present"}</span>
-        </p>
-        <p class="description">${escapeHtml(exp.jobDescription)}</p>
-      </div>
-    `;
+  experiencesData.forEach((exp, index) => {
+    if (editingIndex === index && editingType === "experience") {
+      html += `
+        <div class="preview-job" style="opacity: 0.7;">
+          <p class="job-header">
+            <span class="job-title">${escapeHtml(jobTitleInput.value)}</span>
+            <span class="company">${escapeHtml(companyNameInput.value)}</span>
+            <span class="dates">${escapeHtml(jobStartDateInput.value)} ${
+        jobEndDateInput.value ? " - " + escapeHtml(jobEndDateInput.value) : ""
+      }</span>
+          </p>
+          ${jobDescriptionInput.value ? `<p class="description">${escapeHtml(jobDescriptionInput.value)}</p>` : ""}
+        </div>
+      `;
+    } else {
+      html += `
+        <div class="preview-job">
+          <p class="job-header">
+            <span class="job-title">${escapeHtml(exp.jobTitle)}</span>
+            <span class="company">${escapeHtml(exp.companyName)}</span>
+            <span class="dates">${escapeHtml(exp.jobStartDate)} - ${escapeHtml(exp.jobEndDate) || "Present"}</span>
+          </p>
+          <p class="description">${escapeHtml(exp.jobDescription)}</p>
+        </div>
+      `;
+    }
   });
 
-  if (jobTitleInput.value || companyNameInput.value || jobStartDateInput.value) {
+  if (editingIndex === null && (jobTitleInput.value || companyNameInput.value || jobStartDateInput.value)) {
     html += `
       <div class="preview-job" style="opacity: 0.7;">
         <p class="job-header">

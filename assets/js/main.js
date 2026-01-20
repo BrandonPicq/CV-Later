@@ -1,3 +1,4 @@
+// Prends les éléments du DOM
 const form = document.getElementById("cv-form");
 const prevPersonal = document.getElementById("preview-personal");
 const prevExperience = document.getElementById("preview-experience");
@@ -25,34 +26,40 @@ const educationDescriptionInput = document.getElementById("educationDescription"
 const skillNameInput = document.getElementById("skillName");
 const skillLevelInput = document.getElementById("skillLevel");
 
+// Regroupe les inputs par catégorie
+const personalInputs = [fnInput, lnInput, mailInput, phoneInput, titleInput, summaryInput];
+const experienceInputs = [jobTitleInput, companyNameInput, jobStartDateInput, jobEndDateInput, jobDescriptionInput];
+const educationInputs = [degreeInput, institutionInput, institutionStartDateInput, institutionEndDateInput, educationDescriptionInput];
+const skillInputs = [skillNameInput, skillLevelInput];
+
+// Stocke les données des différentes sections
 let experiencesData = [];
 let educationsData = [];
 let skillsData = [];
 
+// Ajoute les entry lors des click sur les boutons add
 addxpBtn.addEventListener("click", () => addEntry("experience"));
 addeducationBtn.addEventListener("click", () => addEntry("education"));
 addSkillBtn.addEventListener("click", () => addEntry("skill"));
 
-const personalInputs = [fnInput, lnInput, mailInput, phoneInput, titleInput, summaryInput];
+// Met à jour l'aperçu en temps réel lors de la saisie
 personalInputs.forEach((input) => {
   input.addEventListener("input", () => updatePreview("personal"));
 });
 
-const experienceInputs = [jobTitleInput, companyNameInput, jobStartDateInput, jobEndDateInput, jobDescriptionInput];
 experienceInputs.forEach((input) => {
   input.addEventListener("input", () => updatePreview("experience"));
 });
 
-const educationInputs = [degreeInput, institutionInput, institutionStartDateInput, institutionEndDateInput, educationDescriptionInput];
 educationInputs.forEach((input) => {
   input.addEventListener("input", () => updatePreview("education"));
 });
 
-const skillInputs = [skillNameInput, skillLevelInput];
 skillInputs.forEach((input) => {
   input.addEventListener("input", () => updatePreview("skill"));
 });
 
+// Envoie les données au serveur PHP, et gère la réception du PDF
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
