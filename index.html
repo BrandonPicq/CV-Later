@@ -22,21 +22,25 @@
               <h2>1. Your Personal Information</h2>
               <div class="personal-info-entry">
                 <label for="firstName">First Name:</label><br />
-                <input type="text" id="firstName" name="firstName" placeholder="John" required /><br /><br />
                 <span class="error-message" id="firstNameError"></span>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required /><br /><br />
+
                 <label for="lastName">Last Name:</label><br />
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" required /><br /><br />
                 <span class="error-message" id="lastNameError"></span>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required /><br /><br />
+
                 <label for="professionalTitle">Professional Title</label><br />
                 <input type="text" id="professionalTitle" name="professionalTitle" placeholder="Software Engineer" /><br /><br />
                 <label for="email">Email: </label><br />
-                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required /><br /><br />
                 <span class="error-message" id="emailError"></span>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required /><br /><br />
+
                 <label for="phone">Phone</label><br />
-                <input type="tel" id="phone" name="phone" placeholder="+1234567890" required /><br /><br />
                 <span class="error-message" id="phoneError"></span>
+                <input type="tel" id="phone" name="phone" placeholder="+1234567890" required /><br /><br />
+
                 <label for="experienceSummary">Summarize your experience in two or three lines</label><br />
-                <textarea name="experienceSummary" id="experienceSummary" rows="3"></textarea><br /><br />
+                <textarea name="experienceSummary" id="experienceSummary" rows="3" maxlength="360"></textarea><br /><br />
                 <br />
               </div>
             </div>
@@ -45,8 +49,9 @@
               <h2>2. Your Work Experience</h2>
               <div class="experience-entry">
                 <label for="jobTitle">Job Title:</label><br />
-                <input type="text" id="jobTitle" name="experiences" placeholder="Data Scientist" required /><br /><br />
                 <span class="error-message" id="jobTitleError"></span>
+                <input type="text" id="jobTitle" name="experiences" placeholder="Data Scientist" required /><br /><br />
+
                 <label for="companyName">Company Name:</label><br />
                 <input type="text" id="companyName" name="companyName" placeholder="Tech Corp" required /><br /><br />
                 <span class="error-message" id="companyNameError"></span>
@@ -56,7 +61,7 @@
                 <label for="jobEndDate">End Date:</label><br />
                 <input type="date" id="jobEndDate" name="jobEndDate" /><br /><br />
                 <label for="jobDescription">Describe your role and missions in a few lines:</label><br />
-                <textarea name="jobDescription" id="jobDescription" rows="5"></textarea><br /><br />
+                <textarea name="jobDescription" id="jobDescription" rows="5" maxlength="360"></textarea><br /><br />
                 <button type="button" class="btn btn-success btn-sm btn-add-experience" id="btn-add-experience">Add</button>
                 <br />
               </div>
@@ -77,7 +82,7 @@
                 <label for="institutionEndDate">End Date:</label><br />
                 <input type="date" name="institutionEndDate" id="institutionEndDate" /> <br /><br />
                 <label for="educationDescription">Describe your studies in a few lines:</label><br />
-                <textarea name="educationDescription" id="educationDescription" rows="5"></textarea><br /><br />
+                <textarea name="educationDescription" id="educationDescription" rows="5" maxlength="360"></textarea><br /><br />
                 <button type="button" class="btn btn-success btn-sm btn-add-education" id="btn-add-education">Add</button>
                 <br />
               </div>
@@ -102,7 +107,7 @@
               </div>
               <div id="all-skills" class="added-entries"></div>
             </div>
-            <input type="submit" class="btn btn-primary btn-lg" value="Export CV to PDF" />
+            <input type="submit" style="margin-bottom: 5%" class="btn btn-primary btn-lg" value="Export CV to PDF" />
           </form>
         </div>
 

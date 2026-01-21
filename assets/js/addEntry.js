@@ -14,6 +14,13 @@ function addEntry(type) {
       jobEndDate: jobEndDateInput.value,
       jobDescription: jobDescriptionInput.value,
     };
+    if (editingIndex !== null && editingType === "experience") {
+      data[editingIndex] = inputs;
+      editingIndex = null;
+      editingType = null;
+    } else {
+      data.push(inputs);
+    }
   } else if (type === "education") {
     data = educationsData;
     inputs = {
@@ -23,17 +30,27 @@ function addEntry(type) {
       institutionEndDate: institutionEndDateInput.value,
       educationDescription: educationDescriptionInput.value,
     };
+    if (editingIndex !== null && editingType === "education") {
+      data[editingIndex] = inputs;
+      editingIndex = null;
+      editingType = null;
+    } else {
+      data.push(inputs);
+    }
   } else if (type === "skill") {
     data = skillsData;
     inputs = {
       skillName: skillNameInput.value,
       skillLevel: skillLevelInput.value,
     };
+    if (editingIndex !== null && editingType === "skill") {
+      data[editingIndex] = inputs;
+      editingIndex = null;
+      editingType = null;
+    } else {
+      data.push(inputs);
+    }
   }
-
-  console.log(experiencesData);
-
-  data.push(inputs);
 
   displayFormEntries(type);
 
