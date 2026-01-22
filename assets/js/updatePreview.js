@@ -70,8 +70,22 @@ function updatePreviewEducation() {
   const previewSection = document.getElementById("preview-education");
   let html = "<h2>Education</h2>";
 
-  educationsData.forEach((edu) => {
-    html += `
+  educationsData.forEach((edu, index) => {
+    if (editingIndex === index && editingType === "education") {
+      html += `
+      <div class="preview-education-item" style="opacity: 0.7;">
+        <p class="education-header">
+          <span class="degree-title">${escapeHtml(degreeInput.value)}</span>
+          <span class="institution">${escapeHtml(institutionInput.value)}</span>
+          <span class="dates">${escapeHtml(institutionStartDateInput.value)} ${
+        institutionEndDateInput.value ? " - " + escapeHtml(institutionEndDateInput.value) : ""
+      }</span>
+        </p>
+        ${educationDescriptionInput.value ? `<p class="description">${escapeHtml(educationDescriptionInput.value)}</p>` : ""}
+      </div>
+    `;
+    } else {
+      html += `
       <div class="preview-education-item">
         <p class="education-header">
           <span class="degree-title">${escapeHtml(edu.degree)}</span>
@@ -81,9 +95,10 @@ function updatePreviewEducation() {
         <p class="description">${escapeHtml(edu.educationDescription)}</p>
       </div>
     `;
+    }
   });
 
-  if (degreeInput.value || institutionInput.value || institutionStartDateInput.value) {
+  if (editingIndex === null && (degreeInput.value || institutionInput.value || institutionStartDateInput.value)) {
     html += `
       <div class="preview-education-item" style="opacity: 0.7;">
         <p class="education-header">
@@ -105,15 +120,23 @@ function updatePreviewSkills() {
   const previewSection = document.getElementById("preview-skills");
   let html = "<h2>Skills</h2><div class='skills-container'>";
 
-  skillsData.forEach((skill) => {
-    html += `
+  skillsData.forEach((skill, index) => {
+    if (editingIndex === index && editingType === "skill") {
+      html += `
+      <div class="skill-item" style="opacity: 0.7;">
+        <span class="skill-tag">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>
+      </div>
+    `;
+    } else {
+      html += `
       <div class="skill-item">
         <span class="skill-tag">${escapeHtml(skill.skillName)} - ${escapeHtml(skill.skillLevel)}</span>
       </div>
     `;
+    }
   });
 
-  if (skillNameInput.value) {
+  if (editingIndex === null && skillNameInput.value) {
     html += `
       <div class="skill-item" style="opacity: 0.7;">
         <span class="skill-tag">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>

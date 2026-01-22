@@ -18,6 +18,7 @@ function addEntry(type) {
       data[editingIndex] = inputs;
       editingIndex = null;
       editingType = null;
+      updateButtonText();
     } else {
       data.push(inputs);
     }
@@ -34,6 +35,7 @@ function addEntry(type) {
       data[editingIndex] = inputs;
       editingIndex = null;
       editingType = null;
+      updateButtonText();
     } else {
       data.push(inputs);
     }
@@ -47,6 +49,7 @@ function addEntry(type) {
       data[editingIndex] = inputs;
       editingIndex = null;
       editingType = null;
+      updateButtonText();
     } else {
       data.push(inputs);
     }

@@ -31,4 +31,6 @@ function editEntry(type, index) {
     editingIndex = index;
     editingType = type;
   }
+
+  updateButtonText();
 }
