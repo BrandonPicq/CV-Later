@@ -105,16 +105,15 @@
         }
         
         .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
+            line-height: 1.8;
+            
         }
         
         .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 0;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.25rem;
+            margin-top: 0.25rem;
         }
         
         .skill-tag {
@@ -122,6 +121,7 @@
             background-color: #e7f3ff;
             color: #007bff;
             padding: 0.1875rem 0.5rem;
+            line-height: normal;
             border-radius: 1.25rem;
             font-size: 0.75rem;
         }

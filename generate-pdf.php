@@ -49,23 +49,23 @@ $email = sanitize($data['identite']['email']);
 $phone = sanitize($data['identite']['phone']);
 $summary = sanitize($data['identite']['summary']);
 $wantedTitle = sanitize($data['identite']['wantedTitle']);
-foreach ($data['pastWork'] as &$work) {
-    $work['jobTitle'] = sanitize($work['jobTitle']);
-    $work['companyName'] = sanitize($work['companyName']);
-    $work['jobStartDate'] = sanitize($work['jobStartDate']);
-    $work['jobEndDate'] = sanitize($work['jobEndDate']);
-    $work['jobDescription'] = sanitize($work['jobDescription']);
+foreach ($data['pastWork'] as $key => $work) {
+    $data['pastWork'][$key]['jobTitle'] = sanitize($work['jobTitle']);
+    $data['pastWork'][$key]['companyName'] = sanitize($work['companyName']);
+    $data['pastWork'][$key]['jobStartDate'] = sanitize($work['jobStartDate']);
+    $data['pastWork'][$key]['jobEndDate'] = sanitize($work['jobEndDate']);
+    $data['pastWork'][$key]['jobDescription'] = sanitize($work['jobDescription']);
 }
-foreach ($data['education'] as &$edu) {
-    $edu['degree'] = sanitize($edu['degree']);
-    $edu['institution'] = sanitize($edu['institution']);
-    $edu['institutionStartDate'] = sanitize($edu['institutionStartDate']);
-    $edu['institutionEndDate'] = sanitize($edu['institutionEndDate']);
-    $edu['educationDescription'] = sanitize($edu['educationDescription']);
+foreach ($data['education'] as $key => $edu) {
+    $data['education'][$key]['degree'] = sanitize($edu['degree']);
+    $data['education'][$key]['institution'] = sanitize($edu['institution']);
+    $data['education'][$key]['institutionStartDate'] = sanitize($edu['institutionStartDate']);
+    $data['education'][$key]['institutionEndDate'] = sanitize($edu['institutionEndDate']);
+    $data['education'][$key]['educationDescription'] = sanitize($edu['educationDescription']);
 }
-foreach ($data['skills'] as &$skill) {
-    $skill['skillName'] = sanitize($skill['skillName']);
-    $skill['skillLevel'] = sanitize($skill['skillLevel']);
+foreach ($data['skills'] as $key => $skill) {
+    $data['skills'][$key]['skillName'] = sanitize($skill['skillName']);
+    $data['skills'][$key]['skillLevel'] = sanitize($skill['skillLevel']);
 }  
 
 
