@@ -63,6 +63,9 @@
                 <label for="jobDescription">Describe your role and missions in a few lines:</label><br />
                 <textarea name="jobDescription" id="jobDescription" rows="5" maxlength="360"></textarea><br /><br />
                 <button type="button" class="btn btn-success btn-sm btn-add-experience" id="btn-add-experience">Add</button>
+                <button type="button" class="btn btn-secondary btn-sm btn-cancel-edit" id="btn-cancel-experience" style="display: none">
+                  Cancel Edit
+                </button>
                 <br />
               </div>
               <div id="all-experiences" class="added-entries"></div>
@@ -84,6 +87,9 @@
                 <label for="educationDescription">Describe your studies in a few lines:</label><br />
                 <textarea name="educationDescription" id="educationDescription" rows="5" maxlength="360"></textarea><br /><br />
                 <button type="button" class="btn btn-success btn-sm btn-add-education" id="btn-add-education">Add</button>
+                <button type="button" class="btn btn-secondary btn-sm btn-cancel-edit" id="btn-cancel-education" style="display: none">
+                  Cancel Edit
+                </button>
                 <br />
               </div>
               <div id="all-educations" class="added-entries"></div>
@@ -103,6 +109,9 @@
                   <option value="Expert">Expert</option></select
                 ><br /><br />
                 <button type="button" class="btn btn-success btn-sm btn-add-skill" id="btn-add-skill">Add Skill</button>
+                <button type="button" class="btn btn-secondary btn-sm btn-cancel-edit" id="btn-cancel-skill" style="display: none">
+                  Cancel Edit
+                </button>
                 <br />
               </div>
               <div id="all-skills" class="added-entries"></div>
@@ -137,6 +146,7 @@
     ></script>
     <script src="./assets/js/updateButtonText.js"></script>
     <script src="./assets/js/highlightEditingForm.js"></script>
+    <script src="./assets/js/cancelEdit.js"></script>
     <script src="./assets/js/editEntry.js"></script>
     <script src="./assets/js/displayError.js"></script>
     <script src="./assets/js/clearErrors.js"></script>

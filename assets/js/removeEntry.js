@@ -12,4 +12,8 @@ function removeEntry(type, index) {
     updatePreviewSkills();
     displayFormEntries("skill");
   }
+
+  if (editingType === type) {
+    cancelEdit();
+  }
 }

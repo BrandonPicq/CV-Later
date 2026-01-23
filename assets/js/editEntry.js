@@ -2,6 +2,11 @@ let editingIndex = null;
 let editingType = null;
 
 function editEntry(type, index) {
+  // Si on essaie d'éditer un type différent de celui en cours, annuler l'édition précédente
+  if (editingType !== null && editingType !== type) {
+    cancelEdit();
+  }
+
   if (type === "experience") {
     const exp = experiencesData[index];
 

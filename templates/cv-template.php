@@ -7,6 +7,16 @@
     <style>
         <?php include __DIR__ . '/../assets/css/style-template.css'; ?>
     </style>
+    <?php
+    function getSkillLevelClass($level) {
+      $levelLower = strtolower($level);
+      if ($levelLower === "beginner") return "skill-beginner";
+      if ($levelLower === "intermediate") return "skill-intermediate";
+      if ($levelLower === "advanced") return "skill-advanced";
+      if ($levelLower === "expert") return "skill-expert";
+      return "skill-beginner";
+    }
+    ?>
 </head>
 <body>
     <div class="cv-container">
@@ -61,7 +71,7 @@
             <div class="skills-container">
                 <?php foreach ($data['skills'] as $skill): ?>
                     <div class="skill-item">
-                        <span class="skill-tag">
+                        <span class="skill-tag <?php echo getSkillLevelClass($skill['skillLevel']); ?>">
                             <?php echo $skill['skillName']; ?> - <?php echo $skill['skillLevel']; ?></span>
                     </div>
                 <?php endforeach; ?>

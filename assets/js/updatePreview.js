@@ -5,6 +5,15 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function getSkillLevelClass(level) {
+  const levelLower = level.toLowerCase();
+  if (levelLower === "beginner") return "skill-beginner";
+  if (levelLower === "intermediate") return "skill-intermediate";
+  if (levelLower === "advanced") return "skill-advanced";
+  if (levelLower === "expert") return "skill-expert";
+  return "skill-beginner";
+}
+
 function updatePreview(type) {
   if (type === "experience") {
     updatePreviewExperiences();
@@ -28,8 +37,8 @@ function updatePreviewExperiences() {
             <span class="job-title">${escapeHtml(jobTitleInput.value)}</span>
             <span class="company">${escapeHtml(companyNameInput.value)}</span>
             <span class="dates">${escapeHtml(jobStartDateInput.value)} ${
-        jobEndDateInput.value ? " - " + escapeHtml(jobEndDateInput.value) : ""
-      }</span>
+              jobEndDateInput.value ? " - " + escapeHtml(jobEndDateInput.value) : ""
+            }</span>
           </p>
           ${jobDescriptionInput.value ? `<p class="description">${escapeHtml(jobDescriptionInput.value)}</p>` : ""}
         </div>
@@ -55,8 +64,8 @@ function updatePreviewExperiences() {
           <span class="job-title">${escapeHtml(jobTitleInput.value)}</span>
           <span class="company">${escapeHtml(companyNameInput.value)}</span>
           <span class="dates">${escapeHtml(jobStartDateInput.value)} ${
-      jobEndDateInput.value ? " - " + escapeHtml(jobEndDateInput.value) : ""
-    }</span>
+            jobEndDateInput.value ? " - " + escapeHtml(jobEndDateInput.value) : ""
+          }</span>
         </p>
         ${jobDescriptionInput.value ? `<p class="description">${escapeHtml(jobDescriptionInput.value)}</p>` : ""}
       </div>
@@ -78,8 +87,8 @@ function updatePreviewEducation() {
           <span class="degree-title">${escapeHtml(degreeInput.value)}</span>
           <span class="institution">${escapeHtml(institutionInput.value)}</span>
           <span class="dates">${escapeHtml(institutionStartDateInput.value)} ${
-        institutionEndDateInput.value ? " - " + escapeHtml(institutionEndDateInput.value) : ""
-      }</span>
+            institutionEndDateInput.value ? " - " + escapeHtml(institutionEndDateInput.value) : ""
+          }</span>
         </p>
         ${educationDescriptionInput.value ? `<p class="description">${escapeHtml(educationDescriptionInput.value)}</p>` : ""}
       </div>
@@ -105,8 +114,8 @@ function updatePreviewEducation() {
           <span class="degree-title">${escapeHtml(degreeInput.value)}</span>
           <span class="institution">${escapeHtml(institutionInput.value)}</span>
           <span class="dates">${escapeHtml(institutionStartDateInput.value)} ${
-      institutionEndDateInput.value ? " - " + escapeHtml(institutionEndDateInput.value) : ""
-    }</span>
+            institutionEndDateInput.value ? " - " + escapeHtml(institutionEndDateInput.value) : ""
+          }</span>
         </p>
         ${educationDescriptionInput.value ? `<p class="description">${escapeHtml(educationDescriptionInput.value)}</p>` : ""}
       </div>
@@ -121,25 +130,28 @@ function updatePreviewSkills() {
   let html = "<h2>Skills</h2><div class='skills-container'>";
 
   skillsData.forEach((skill, index) => {
+    const skillLevelClass = getSkillLevelClass(skill.skillLevel);
     if (editingIndex === index && editingType === "skill") {
+      const editingLevelClass = getSkillLevelClass(skillLevelInput.value);
       html += `
       <div class="skill-item" style="opacity: 0.7;">
-        <span class="skill-tag">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>
+        <span class="skill-tag ${editingLevelClass}">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>
       </div>
     `;
     } else {
       html += `
       <div class="skill-item">
-        <span class="skill-tag">${escapeHtml(skill.skillName)} - ${escapeHtml(skill.skillLevel)}</span>
+        <span class="skill-tag ${skillLevelClass}">${escapeHtml(skill.skillName)} - ${escapeHtml(skill.skillLevel)}</span>
       </div>
     `;
     }
   });
 
   if (editingIndex === null && skillNameInput.value) {
+    const draftLevelClass = getSkillLevelClass(skillLevelInput.value);
     html += `
       <div class="skill-item" style="opacity: 0.7;">
-        <span class="skill-tag">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>
+        <span class="skill-tag ${draftLevelClass}">${escapeHtml(skillNameInput.value)} - ${escapeHtml(skillLevelInput.value)}</span>
       </div>
     `;
   }

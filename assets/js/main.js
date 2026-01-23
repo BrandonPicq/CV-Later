@@ -42,6 +42,11 @@ addxpBtn.addEventListener("click", () => addEntry("experience"));
 addeducationBtn.addEventListener("click", () => addEntry("education"));
 addSkillBtn.addEventListener("click", () => addEntry("skill"));
 
+// Cancel le mode edit lors des click sur les boutons cancel
+document.getElementById("btn-cancel-experience").addEventListener("click", cancelEdit);
+document.getElementById("btn-cancel-education").addEventListener("click", cancelEdit);
+document.getElementById("btn-cancel-skill").addEventListener("click", cancelEdit);
+
 // Met à jour l'aperçu en temps réel lors de la saisie
 personalInputs.forEach((input) => {
   input.addEventListener("input", () => updatePreview("personal"));

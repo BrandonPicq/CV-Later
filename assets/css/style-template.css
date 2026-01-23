@@ -116,4 +116,26 @@ body {
   line-height: normal;
   border-radius: 1.25rem;
   font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Skill level colors */
+.skill-tag.skill-beginner {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.skill-tag.skill-intermediate {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.skill-tag.skill-advanced {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.skill-tag.skill-expert {
+  background-color: #d1ecf1;
+  color: #0c5460;
 }
