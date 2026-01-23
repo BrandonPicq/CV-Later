@@ -60,4 +60,6 @@ function addEntry(type) {
   clearForm(type);
 
   updatePreview(type);
+
+  removeEditHighlight();
 }

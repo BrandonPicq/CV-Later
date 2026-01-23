@@ -27,6 +27,16 @@ body {
   margin-bottom: 0.9375rem;
   border-radius: 0.3125rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.experience-entry.editing-mode,
+.education-entry.editing-mode,
+.skill-entry.editing-mode {
+  background-color: #fffacd;
+  border-left: 4px solid #28a745;
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
 }
 
 label {

@@ -33,4 +33,5 @@ function editEntry(type, index) {
   }
 
   updateButtonText();
+  highlightEditingForm(type);
 }
